@@ -19,11 +19,11 @@
 				
 				<view class="table-row">
 					<view class="table-cell">机号</view>
-					<view class="table-cell"><input placeholder="机号" v-model="model.machineNumber"/></view>
+					<view class="table-cell"><input v-model="model.machineNumber"/></view>
 					<view class="table-cell">资产编码</view>
-					<view class="table-cell"><input placeholder="资产编码" v-model="model.assetCode"/></view>
+					<view class="table-cell"><input v-model="model.assetCode"/></view>
 					<view class="table-cell">机型</view>
-					<view class="table-cell"><input placeholder="机型" v-model="model.machineModel"/></view>
+					<view class="table-cell"><input v-model="model.machineModel"/></view>
 				</view>
 
 				<view class="table-row">
@@ -35,47 +35,115 @@
 				</view>
 				<view class="table-row">
 					<view class="table-cell">模具编号</view>
-					<view class="table-cell"><input placeholder="模具编号" v-model="model.moldNumber"/></view>
+					<view class="table-cell"><input v-model="model.moldNumber"/></view>
 					<view class="table-cell">模穴数</view>
-					<view class="table-cell"><input type="number" placeholder="模穴数" v-model="model.cavityCount"/></view>
+					<view class="table-cell"><input v-model="model.cavityCount"/></view>
 					<view class="table-cell">实取数</view>
-					<view class="table-cell"><input type="number" placeholder="实际取数" v-model="model.actualCavityCount"/></view>
+					<view class="table-cell"><input type="number" v-model="model.actualCavityCount"/></view>
 					
 				</view>
 				<view class="table-row">
 					<view class="table-cell">材质</view>
 					<view class="table-cell"><input placeholder="材料类型/材质" v-model="model.materialType"/></view>
-					<view class="table-cell">产品单重(g)</view>
-					<view class="table-cell"><input type="number" placeholder="产品单重" v-model="model.productWeight"/></view>
-					<view class="table-cell">水口重量(g)</view>
-					<view class="table-cell"><input type="number" placeholder="水口重量" v-model="model.runnerWeight"/></view>
+					<view class="table-cell">产品单重</view>
+					<view class="table-cell"><input type="number" v-model="model.productWeight"/></view>
+					<view class="table-cell">水口重量</view>
+					<view class="table-cell"><input type="number" v-model="model.runnerWeight"/></view>
 				</view>
 				
 				<view class="table-row">
-					<view class="table-cell">螺杆直径(mm)</view>
-					<view class="table-cell"><input type="number" placeholder="螺杆直径" v-model="model.screwDiameter"/></view>
+					<view class="table-cell">螺杆</view>
+					<view class="table-cell"><input type="number" v-model="model.screwDiameter"/></view>
 					<view class="table-cell">色号</view>
-					<view class="table-cell"><input placeholder="色号" v-model="model.colorCode"/></view>
+					<view class="table-cell"><input v-model="model.colorCode"/></view>
 					<view class="table-cell">日期</view>
 					<view class="table-cell">
 						<!-- <my-date fields="day" v-model="model.processDate" placeholder="工艺制定日期"></my-date> -->
 						<input placeholder="格式:2023.08.07" v-model="model.processDate"/>
 					</view>
-					<view class="table-cell">周期(s)</view>
-					<view class="table-cell"><input type="number" placeholder="生产周期" v-model="model.cycleTime"/></view>
+					<view class="table-cell">周期</view>
+					<view class="table-cell"><input type="number" v-model="model.cycleTime"/></view>
 				</view>
 
 			</view>
 
 			<!-- 温度控制参数 -->
 			<view class="table-section">
-				<view class="table-header">温度控制参数</view>
-				<view class="table-subheader">主射台温控</view>
+				<view class="table-header">炮台温控参数</view>
+				<view class="table-row table-header-row">
+						<view class="table-cell">主射台</view>
+						<view class="table-cell">段数</view>
+						<view class="table-cell">T1</view>
+						<view class="table-cell">T2</view>
+						<view class="table-cell">T3</view>
+						<view class="table-cell">T4</view>
+						<view class="table-cell">T5</view>
+				</view>
 				<view class="table-row">
+						<view class="table-cell"></view>
+						<view class="table-cell">设定</view>
+						<view class="table-cell"><input type="number" v-model="model.mainBarrelT1Set" /></view>
+						<view class="table-cell"><input type="number" v-model="model.mainBarrelT2Set" /></view>
+						<view class="table-cell"><input type="number" v-model="model.mainBarrelT3Set" /></view>
+						<view class="table-cell"><input type="number" v-model="model.mainBarrelT4Set" /></view>
+						<view class="table-cell"><input type="number" v-model="model.mainBarrelT5Set" /></view>
+
+				</view>
+				<view class="table-row">
+						<view class="table-cell"></view>
+						<view class="table-cell">实际</view>
+						<view class="table-cell"><input type="number" v-model="model.mainBarrelT1Actual" /></view>
+						<view class="table-cell"><input type="number" v-model="model.mainBarrelT2Actual" /></view>
+						<view class="table-cell"><input type="number" v-model="model.mainBarrelT3Actual" /></view>
+						<view class="table-cell"><input type="number" v-model="model.mainBarrelT4Actual" /></view>
+						<view class="table-cell"><input type="number" v-model="model.mainBarrelT5Actual" /></view>
+				</view>
+				<view class="table-row table-header-row">
+						<view class="table-cell">副射台</view>
+						<view class="table-cell">段数</view>
+						<view class="table-cell">T1</view>
+						<view class="table-cell">T2</view>
+						<view class="table-cell">T3</view>
+						<view class="table-cell">T4</view>
+						<view class="table-cell">T5</view>
+				</view>
+				<view class="table-row">
+						<view class="table-cell"></view>
+						<view class="table-cell">设定</view>
+						<view class="table-cell"><input type="number" v-model="model.subBarrelT1Set" /></view>
+						<view class="table-cell"><input type="number" v-model="model.subBarrelT2Set" /></view>
+						<view class="table-cell"><input type="number" v-model="model.subBarrelT3Set" /></view>
+						<view class="table-cell"><input type="number" v-model="model.subBarrelT4Set" /></view>
+						<view class="table-cell"><input type="number" v-model="model.subBarrelT5Set" /></view>
+				
+				</view>
+				<view class="table-row">
+						<view class="table-cell"></view>
+						<view class="table-cell">实际</view>
+						<view class="table-cell"><input type="number" v-model="model.subBarrelT1Actual" /></view>
+						<view class="table-cell"><input type="number" v-model="model.subBarrelT2Actual" /></view>
+						<view class="table-cell"><input type="number" v-model="model.subBarrelT3Actual" /></view>
+						<view class="table-cell"><input type="number" v-model="model.subBarrelT4Actual" /></view>
+						<view class="table-cell"><input type="number" v-model="model.subBarrelT5Actual" /></view>
+						
+				</view>
+				<view class="table-row">
+					<view class="table-cell">模温控制</view>
+					<view class="table-cell">前模</view>
+					<view class="table-cell"><input type="number" v-model="model.frontMoldTempSet" /></view>
+					<view class="table-cell">实际</view>
+					<view class="table-cell"><input type="number" v-model="model.frontMoldTempActual" /></view>
+					<view class="table-cell">后模</view>
+					<view class="table-cell"><input type="number" v-model="model.rearMoldTempSet" /></view>
+					<view class="table-cell">实际</view>
+					<view class="table-cell"><input type="number" v-model="model.rearMoldTempActual" /></view>
+				</view>
+				
+			</view>
+	<!-- 			<view class="table-subheader">主射台温控</view> -->
+				<!-- <view class="table-row">
 					<view class="table-cell">T1 设定/实际</view>
 					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.mainBarrelT1Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.mainBarrelT1Actual" style="width:45%"/>
 					</view>
 					<view class="table-cell">T2 设定/实际</view>
 					<view class="table-cell">
@@ -97,76 +165,8 @@
 						<input type="number" placeholder="设定" v-model="model.mainBarrelT5Set" style="width:45%"/>
 						<input type="number" placeholder="实际" v-model="model.mainBarrelT5Actual" style="width:45%"/>
 					</view>
-				</view>
-				<!-- 其他温度段类似... -->
-				
-				<view class="table-subheader">热流道温控</view>
-				<view class="table-row">
-					<view class="table-cell">T1 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.hotRunnerT1Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.hotRunnerT1Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T2 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.hotRunnerT2Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.hotRunnerT2Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T3 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.hotRunnerT3Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.hotRunnerT3Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T4 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.hotRunnerT4Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.hotRunnerT4Actual" style="width:45%"/>
-					</view>
-				</view>
-				<view class="table-row">
-					<view class="table-cell">T5 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.hotRunnerT5Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.hotRunnerT5Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T6 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.hotRunnerT6Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.hotRunnerT6Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T7 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.hotRunnerT7Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.hotRunnerT7Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T8 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.hotRunnerT8Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.hotRunnerT8Actual" style="width:45%"/>
-					</view>
-				</view>
-				<view class="table-row">
-					<view class="table-cell">T9 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.hotRunnerT9Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.hotRunnerT9Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T10 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.hotRunnerT10Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.hotRunnerT10Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T11 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.hotRunnerT11Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.hotRunnerT11Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T12 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.hotRunnerT12Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.hotRunnerT12Actual" style="width:45%"/>
-					</view>
-				</view>
+				</view> 
+
 				<view class="table-subheader">副射台温控</view>
 				<view class="table-row">
 					<view class="table-cell">T1 设定/实际</view>
@@ -194,82 +194,13 @@
 						<input type="number" placeholder="设定" v-model="model.subBarrelT5Set" style="width:45%"/>
 						<input type="number" placeholder="实际" v-model="model.subBarrelT5Actual" style="width:45%"/>
 					</view>
-				</view>
-				<!-- 其他温度段类似... -->
+				</view>-->
 				
-				<view class="table-subheader">热流道温控</view>
-				<view class="table-row">
-					<view class="table-cell">T13 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.subBarrelT13Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.subBarrelT13Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T14 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.subBarrelT14Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.subBarrelT14Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T15 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.subBarrelT15Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.subBarrelT15Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T16 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.subBarrelT16Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.subBarrelT16Actual" style="width:45%"/>
-					</view>
-				</view>
-				<view class="table-row">
-					<view class="table-cell">T17 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.subBarrelT17Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.subBarrelT17Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T18 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.subBarrelT18Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.subBarrelT18Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T19 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.subBarrelT19Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.subBarrelT19Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T20 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.subBarrelT20Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.subBarrelT20Actual" style="width:45%"/>
-					</view>
-				</view>
-				<view class="table-row">
-					<view class="table-cell">T21 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.subBarrelT21Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.subBarrelT21Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T22 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.subBarrelT22Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.subBarrelT22Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T23 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.subBarrelT23Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.subBarrelT23Actual" style="width:45%"/>
-					</view>
-					<view class="table-cell">T24 设定/实际</view>
-					<view class="table-cell">
-						<input type="number" placeholder="设定" v-model="model.subBarrelT24Set" style="width:45%"/>
-						<input type="number" placeholder="实际" v-model="model.subBarrelT24Actual" style="width:45%"/>
-					</view>
-				</view>
-				<!-- 其他热流道温度段类似... -->
-			</view>
+		 
 			
-			
-			<!-- 在温度控制参数区域添加模具温度 -->
-			<view class="table-subheader">模具温度</view>
+<!-- 			
+
+			<view class="table-subheader">模温控制u</view>
 			<view class="table-row">
 			    <view class="table-cell">前模温度 设定/实际</view>
 			    <view class="table-cell">
@@ -283,23 +214,111 @@
 			    </view>
 			</view>
 			
-			<!-- 在温度控制参数区域添加干燥参数 -->
+
 			<view class="table-subheader">干燥参数</view>
+			 -->
+			
+			<view class="table-header">热流道温控参数</view>
+			<view class="table-row table-header-row">
+					<view class="table-cell">T1</view>
+					<view class="table-cell">T2</view>
+					<view class="table-cell">T3</view>
+					<view class="table-cell">T4</view>
+					<view class="table-cell">T5</view>
+					<view class="table-cell">T6</view>
+					<view class="table-cell">T7</view>
+					<view class="table-cell">T8</view>
+					<view class="table-cell">T9</view>
+					<view class="table-cell">T10</view>
+					<view class="table-cell">T11</view>
+					<view class="table-cell">T12</view>
+			</view>
 			<view class="table-row">
-			    <view class="table-cell">干燥时间1(小时)</view>
-			    <view class="table-cell"><input type="number" v-model="model.dryingTime1"/></view>
-			    <view class="table-cell">干燥时间2(小时)</view>
-			    <view class="table-cell"><input type="number" v-model="model.dryingTime2"/></view>
-			    <view class="table-cell">干燥温度1(℃)</view>
-			    <view class="table-cell"><input type="number" v-model="model.dryingTemp1"/></view>
-			    <view class="table-cell">干燥温度2(℃)</view>
-			    <view class="table-cell"><input type="number" v-model="model.dryingTemp2"/></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT1Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT2Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT3Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT4Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT5Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT6Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT7Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT8Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT9Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT10Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT11Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT12Set" /></view>		
+			</view>
+			<view class="table-row">
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT1Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT2Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT3Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT4Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT5Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT6Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT7Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT8Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT9Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT10Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT11Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.hotRunnerT12Actual" /></view>		
+					
+			</view>
+
+			<view class="table-row table-header-row">
+					<view class="table-cell">T13</view>
+					<view class="table-cell">T14</view>
+					<view class="table-cell">T15</view>
+					<view class="table-cell">T16</view>
+					<view class="table-cell">T17</view>
+					<view class="table-cell">T18</view>
+					<view class="table-cell">T19</view>
+					<view class="table-cell">T20</view>
+					<view class="table-cell">T21</view>
+					<view class="table-cell">T22</view>
+					<view class="table-cell">T23</view>
+					<view class="table-cell">T24</view>
+			</view>
+			<view class="table-row">
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT13Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT14Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT15Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT16Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT17Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT18Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT19Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT20Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT21Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT22Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT23Set" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT24Set" /></view>	
+			</view>
+			<view class="table-row">
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT13Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT14Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT15Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT16Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT17Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT18Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT19Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT20Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT21Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT22Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT23Actual" /></view>
+					<view class="table-cell"><input type="number" v-model="model.subBarrelT24Actual" /></view>	
 			</view>
 			
-			
+			<view class="table-row">
+				<view class="table-cell">干燥温度1(℃)</view>
+				<view class="table-cell"><input type="number" v-model="model.dryingTemp1"/></view>
+			    <view class="table-cell">干燥时间1(小时)</view>
+			    <view class="table-cell"><input type="number" v-model="model.dryingTime1"/></view>
+			    <view class="table-cell">干燥温度2(℃)</view>
+			    <view class="table-cell"><input type="number" v-model="model.dryingTemp2"/></view>
+					<view class="table-cell">干燥时间2(小时)</view>
+			    <view class="table-cell"><input type="number" v-model="model.dryingTime2"/></view>
+			</view>
 			
 			<!-- 添加主射台射出参数 -->
-			<view class="table-header">主射台射出参数</view>
+			<view class="table-header">主射台注射参数</view>
 			<view class="table-row table-header-row">
 			    <view class="table-cell">动作</view>
 			    <view class="table-cell">位置</view>
